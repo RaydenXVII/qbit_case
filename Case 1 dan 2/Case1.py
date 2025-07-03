@@ -43,14 +43,12 @@ fruits = [
     }
 ]
 
-# Fungsi untuk mengetahui buah yang dimiliki oleh andi.
 def mengambilNamaBuah(data_buah):
     nama_buah = [buah['fruitName'].lower() for buah in data_buah]
     nama_buah_unik = set(nama_buah)
     buah_andi = [nama.capitalize() for nama in sorted(list(nama_buah_unik))]
     return buah_andi
 
-# Fungsi untuk Memisahkan buah berdasarkan tipe dan menyebutkan isinya.
 def mengelompokkanBuah(data_buah):
     wadah_buah_awal = {}
 
@@ -72,7 +70,6 @@ def mengelompokkanBuah(data_buah):
         wadah_buah_akhir[tipe_buah] = nama_rapi
     return wadah_buah_akhir
 
-# Fungsi untuk menghitung total stock buah yang ada di masing-masing wadah.
 def menghitungStokBuah(data_buah):
     total_stok = {}
 
