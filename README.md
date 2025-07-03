@@ -1,2 +1,4 @@
-# qbit_case
-mengerjakan soal technical test. Case 1, 2 menggunakan python, dan Case 3 menggunakan react, tailwind
+# Tech Test - Junior Fullstack Intern
+Repository ini berisi jawaban dari Technical Test Junior Fullstack Developer yang terdiri dari 3 case. Setiap case menggunakan bahasa atau framework sesuai arahan:
+Untuk case 1 dan 2 menggunakan bahasa python
+Untuk case 3 menggunakan framework React JS dan TailwindCSS
