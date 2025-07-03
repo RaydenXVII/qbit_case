@@ -105,5 +105,7 @@ print("-" * 80)
 print("Soal 3: Berapa total stock buah yang ada di masing-masing wadah?")
 print("Jawaban:", hitung_stok_buah)
 print("-" * 80)
-print("Soal 4: Apakah ada komentar terkait kasus di atas?")
-print("Jawaban:", )
+
+# Soal 4 Komentar Mengenai Case 1
+# 1. Terdapat data buah yang duplikat, contoh adanya 3 data buah yang memiliki id 5
+# 2. Nama Buah tidak memiliki standar ada nama buah yang huruf nya kapital, dan ada yang tidak.
