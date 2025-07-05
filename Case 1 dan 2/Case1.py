@@ -40,7 +40,13 @@ fruits = [
         "fruitName": 'Salak',
         "fruitType": 'LOCAL',
         "stock": 150
-    }
+    },
+    {
+        "fruitId": 5,
+        "fruitName": 'Stroberi',
+        "fruitType": 'International',
+        "stock": 150
+    },
 ]
 
 def mengambilNamaBuah(data_buah):
@@ -48,6 +54,12 @@ def mengambilNamaBuah(data_buah):
     nama_buah_unik = set(nama_buah)
     buah_andi = [nama.capitalize() for nama in sorted(list(nama_buah_unik))]
     return buah_andi
+
+def mengambilNamaBuahCapitalManual(data_buah):
+    nama_buah = [buah['fruitName'].lower() for buah in data_buah]
+    nama_buah_unik = set(nama_buah)
+    buah_andi_capital = [nama.title() for nama in sorted(list(nama_buah_unik))]
+    return buah_andi_capital
 
 def mengelompokkanBuah(data_buah):
     wadah_buah_awal = {}
@@ -70,6 +82,23 @@ def mengelompokkanBuah(data_buah):
         wadah_buah_akhir[tipe_buah] = nama_rapi
     return wadah_buah_akhir
 
+def filter_buah_berdasarkan_id(data_buah):
+    types_for_id_5 = set()
+    for buah in data_buah:
+        if buah['fruitId'] == 5:
+            types_for_id_5.add(buah['fruitType'])
+
+    konflik_ditemukan = 'LOCAL' in types_for_id_5 and 'IMPORT' in types_for_id_5
+
+    if konflik_ditemukan:
+        print("INFO: Ditemukan fruitId 5 untuk tipe LOCAL dan IMPORT. Semua data dengan fruitId 5 akan disembunyikan.")
+        data_buah_baru = [buah for buah in data_buah if buah['fruitId'] != 5]
+        return data_buah_baru
+    else:
+        print("INFO: Tidak ditemukan konflik fruitId 5. Data ditampilkan semua.")
+        return data_buah
+
+
 def menghitungStokBuah(data_buah):
     total_stok = {}
 
@@ -85,11 +114,13 @@ def menghitungStokBuah(data_buah):
     return total_stok
 
 buah_yang_dimiliki_andi = mengambilNamaBuah(fruits)
+buah_yang_dimiliki_andi_c = mengambilNamaBuahCapitalManual(fruits)
 pengelempokkan_tipe_buah = mengelompokkanBuah(fruits)
 hitung_stok_buah = menghitungStokBuah(fruits)
 
 print("Soal 1: Buah apa saja yang dimiliki oleh Andi?")
 print("Jawaban:", buah_yang_dimiliki_andi)
+print("Jawaban:", buah_yang_dimiliki_andi_c)
 print("-" * 80)
 print("Soal 2: Berapa jumlah wadah yang dibutuhkan? Dan ada buah apa saja di masing-masing wadah?")
 jumlah_wadah = len(pengelempokkan_tipe_buah)
